@@ -1,8 +1,9 @@
 <?php
 
-date_default_timezone_set("Europe/London");
-require __DIR__ . '/vendor/autoload.php';
+date_default_timezone_set("UTC");
+require_once __DIR__ . '/../vendor/autoload.php';
 use Endroid\Twitter\Twitter;
+
 
 $app = new Silex\Application();
 $app['debug'] = true;
@@ -15,22 +16,19 @@ $app->get('/hello/{name}', function($name) use($app) {
 	return 'Hello ' . $app->escape($name);
 });
 
-$app->get('/histogram/{username}', function($username) use($app) {
+$app->get('/histogram/{screen_name}', function($screen_name) use($app) {
+	//load the twitter config file
+	require_once __DIR__ . '/../twitter_conf.php';
 
-	$consumer_key = "dV6IsreN1vIBQo2ipFeymv0ex";
-	$consumer_secret = "RNJhrRcMHt5EWo3QKCj2q2yJfOiksVeS5Wwda6KuWeKG5ycRoW";
-	$access_token = "746038941392973824-jpwcdL3WAAL1oxyrpyu6U2S8dPoaPdq";
-	$access_token_secret = "KBkx3KyL9x7dSRUprURtiALQUcP7buQ1U5J1oduCXc6Fm";
+	$twitter = new Twitter($twitter_conf['consumer_key'], $twitter_conf['consumer_secret'], $twitter_conf['access_token'], $twitter_conf['access_token_secret']);
 
-	$twitter = new Twitter($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-	$params = ['screen_name' => $username];
-
+	$params = ['screen_name' => $screen_name];
 	$response = $twitter->query('statuses/user_timeline', 'GET', 'json', $params);
 	$data = json_decode($response->getContent());
 	$dates = [];
 
 	$histogram = [];
-	#create the histogram part:
+	//set up the histogram assoc. array:
 	for ($i=0; $i < 24; $i++) { 
 		// initialise each hour with a value of 0 tweets:
 		$histogram[strval($i) . ":00"] = 0;
@@ -45,8 +43,6 @@ $app->get('/histogram/{username}', function($username) use($app) {
 			$histogram[$hour] = 1;
 		}
 	}
-
-	// var_dump($histogram);
 
 	return $app->json($histogram);
 });
