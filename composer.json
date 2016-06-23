@@ -1,0 +1,17 @@
+{
+    "name": "ba.perlaki/silex-twitter",
+    "description": "tweet counts for a given user, to determine what hour of the day they are most active",
+    "type": "project",
+    "require": {
+        "silex/silex": "^2.0",
+        "rmccue/requests": "^1.6",
+        "endroid/twitter": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BPH",
+            "email": "ba.perlaki@gmail.com"
+        }
+    ]
+}
