@@ -56,7 +56,7 @@ update the following, if needed:
 
 ###Troubleshoot:
 If rspec fails with message:
-returns valid data from twitter (FAILED - 1)
+`returns valid data from twitter (FAILED - 1)`
 
 ####Solution
 Make sure that your twitter credentials are set and correct in twitter_conf.php
