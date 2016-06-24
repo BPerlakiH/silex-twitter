@@ -12,6 +12,21 @@ connect to Twitter’s API and return a JSON-encoded array containing hour -> tw
 
 4. configure web/.htaccess for your apache server
 
+An example deve implementation with virtual host:
+```
+#SILEX
+<VirtualHost *:80>
+	ServerName silex.localhost
+	ServerAdmin server_admin@gmail.com
+	DocumentRoot /path/to/silex-twitter/web
+	<Directory /path/to/silex-twitter/web>
+		Options +FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+</VirtualHost>
+```
+
 see [silex doc](http://silex.sensiolabs.org/doc/master/web_servers.html) for alternative webserver configs
 
 5. set your twitter authentication details in twitter_conf.php, 
