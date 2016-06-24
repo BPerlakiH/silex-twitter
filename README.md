@@ -34,9 +34,9 @@ add the following line to .rspec
 
 
 ## Notes
-At the moment only the last 200 tweets are pulled from the user's timeline
-and the stats are based only on that
+At the moment *only the last 200 tweets* are pulled down from the user's timeline
+and the stats are based on that
 
 ###Future improvements
 1. Pagination could be added to include more tweets, although that would increase the response time
-2. A local cache could be added to the tweet fetching part, the cache key could come from a flattened hash of the twitter params (screen_name + count)
+2. A local cache could be added to the tweet fetching part, the cache key could come from a flattened hash of the twitter params (screen_name + count), with a time based cache invalidation
