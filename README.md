@@ -49,10 +49,12 @@ add the following line to .rspec
 
 1. Make sure that the root url is matching your dev environment in spec/api_spec.rb,
 update the following line accordingly if needed:
+
 `@root_url = 'http://silex.localhost'`
 
 
 2. run the tests from commandline:
+
 `rspec'
 
 ###Troubleshoot:
@@ -63,9 +65,9 @@ returns valid data from twitter (FAILED - 1)
 Make sure that your twitter credentials are set and correct in twitter_conf.php
 
 ## Notes
-At the moment *only the last 200 tweets* are pulled down from the user's timeline
+At the moment **only the last 200 tweets** are pulled down from the user's timeline
 and the stats are based on that
 
 ###Future improvements
 1. Pagination could be added to include more tweets, although that would increase the response time
-2. A local cache could be added to the tweet fetching part, the cache key could come from a flattened hash of the twitter params (screen_name + count), with a time based cache invalidation
+2. A local cache could be added to the tweet fetching part, the cache key could come from a hash of the twitter params (screen_name + count), with a time based cache invalidation
