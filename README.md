@@ -34,31 +34,28 @@ see [silex doc](http://silex.sensiolabs.org/doc/master/web_servers.html) for alt
 
 
 ## API testing
-Install ruby if you don't already have it, see the docs here:
+Install ruby, if you don't have it. See the docs here:
 https://www.ruby-lang.org/en/documentation/installation/
 
 `gem install rspec`
 
 Optional Mac OsX steps:
-if you want a nice notifications of test results:
+if you want notifications of test results:
 
 `gem install rspec-nc`
 
 add the following line to .rspec
 `--format Nc`
 
-1. Make sure that the root url is matching your dev environment in spec/api_spec.rb,
-update the following line accordingly if needed:
-
+1. Make sure that the **root url is matching your dev environment in spec/api_spec.rb**,
+update the following, if needed:
 `@root_url = 'http://silex.localhost'`
 
-
-2. run the tests from commandline:
-
+2. run the tests from commandline: 
 `rspec'
 
 ###Troubleshoot:
-After rspec you got:
+If rspec fails with message:
 returns valid data from twitter (FAILED - 1)
 
 ####Solution
