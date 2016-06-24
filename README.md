@@ -5,12 +5,15 @@ connect to Twitter’s API and return a JSON-encoded array containing hour -> tw
 
 1. Clone the project localy
 
-2. Get [Composer](https://getcomposer.org/)
+2. set your twitter authentication details in twitter_conf.php, 
+you can obtain fresh keys and tokens from: https://apps.twitter.com/app/new
 
-3. install dependencies from commandline:
+3. Get [Composer](https://getcomposer.org/)
+
+4. install dependencies from commandline:
 `php composer.phar install`
 
-4. configure web/.htaccess for your apache server
+5. configure web/.htaccess for your apache server
 
 An example deve implementation with virtual host:
 ```
@@ -28,9 +31,6 @@ An example deve implementation with virtual host:
 ```
 
 see [silex doc](http://silex.sensiolabs.org/doc/master/web_servers.html) for alternative webserver configs
-
-5. set your twitter authentication details in twitter_conf.php, 
-you can obtain fresh keys and tokens from: https://apps.twitter.com/app/new
 
 
 ## API testing
